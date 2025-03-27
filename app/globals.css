@@ -1,0 +1,28 @@
+@import "tailwindcss"; /* v4.0 改成這樣 */
+
+/* 自定義項目 */
+@theme {
+  /* --color-myOrange: #ff6144; */
+  /* --font-mono: */
+  --font-sans: DIN alternate;
+}
+
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+:root {
+  background: #ffffff;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-size: smaller;
+}
+
+body {
+  cursor: default;
+  overscroll-behavior: none;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
