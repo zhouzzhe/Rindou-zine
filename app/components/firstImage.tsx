@@ -23,7 +23,11 @@ export default function FirstImage({ ...arg }: FirstImageProp) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="pointer-events-none object-cover select-none"
+          priority
         />
+        <div className="absolute bottom-0 w-full px-10 text-center">
+          {arg.label}
+        </div>
       </div>
     </>
   );

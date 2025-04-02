@@ -1,7 +1,9 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import albumList from "@/app/lib/albumList.json";
+import { AnimatePresence, motion } from "framer-motion";
+import { Dot } from "lucide-react";
 
 interface filterBarProp {
   onFilterChange: (
@@ -27,7 +29,7 @@ export default function FilterBar({ onFilterChange }: filterBarProp) {
   const [selectedCreator, setSelectedCreator] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
-  // 切換某個創作者的狀態
+  // 切換創作者是否打開
   const toggleCreator = (creator: string) => {
     setOpenCreator((prev) => {
       const newOpenCreator = { ...prev };
@@ -80,33 +82,81 @@ export default function FilterBar({ onFilterChange }: filterBarProp) {
     <aside className="w-32 shrink-0 pr-5 select-none">
       <div className="mb-5 flex w-full flex-col items-end border-t">
         <div className="p-2 text-lg font-semibold">Creator</div>
-        <div className="mr-3 cursor-pointer text-lg" onClick={resetFilter}>
+        {/* All */}
+        <div
+          className={`hover:text-main active:text-deeper relative flex cursor-pointer items-center pr-3 text-lg ${!selectedCreator && !selectedYear ? "text-lighter" : ""}`}
+          onClick={resetFilter}
+        >
           All
+          {!selectedCreator && !selectedYear && (
+            <motion.div
+              className="absolute right-0 h-1/2 border-r"
+              layoutId="activeBorder"
+            ></motion.div>
+          )}
         </div>
+        {/* 創作者 */}
         {creators.map((creator, index) => (
-          <div
+          <motion.div
             key={index}
-            className="mr-3 cursor-pointer"
+            className="cursor-pointer"
             onClick={() => toggleCreator(creator)}
+            layout
           >
-            <div className="text-lg">{creator}</div>
+            <motion.div
+              layout
+              className={`hover:text-main active:text-deeper relative pr-3 text-lg ${openCreator[creator] ? "text-lighter" : ""}`}
+            >
+              {creator}
+              {openCreator[creator] && (
+                <motion.div
+                  className="absolute top-[6.5px] right-0 h-1/2 border-r"
+                  layoutId="activeBorder"
+                ></motion.div>
+              )}
+            </motion.div>
+
             {openCreator[creator] && (
-              <>
-                {sortedYear(creator).map((year, index) => (
-                  <div
-                    key={index}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleYear(creator, year);
-                    }}
-                    className="mb-0.5 py-1 text-right text-sm"
-                  >
-                    {year}
-                  </div>
-                ))}
-              </>
+              <AnimatePresence>
+                <motion.div
+                  className="origin-top"
+                  animate={{ scaleY: 1 }}
+                  initial={{ scaleY: 0 }}
+                  exit={{ scaleY: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {sortedYear(creator).map((year, index) => (
+                    <motion.div
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleYear(creator, year);
+                      }}
+                      className={`hover:text-main active:text-deeper relative my-0.5 py-1 pr-3 text-right text-sm ${
+                        selectedYear === year
+                          ? "text-main" // 選取時最深色
+                          : openCreator[creator]
+                            ? "text-lighter" // 展開時一般橘色
+                            : ""
+                      }`}
+                      animate={{ scaleY: 1 }}
+                      initial={{ scaleY: 0 }}
+                      exit={{ scaleY: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {year}
+                      {selectedYear === year && (
+                        <motion.div
+                          className="absolute top-[8.5px] right-0 h-1/3 border-r"
+                          layoutId="activeBorderYear"
+                        ></motion.div>
+                      )}
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
     </aside>

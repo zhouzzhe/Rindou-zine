@@ -3,12 +3,13 @@ import Link from "next/link";
 import { Dot } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 interface albumProp {
   creator: string;
   year: number;
   label: string;
-  src: string;
+  CoverSrc: string;
   date: string;
 }
 
@@ -16,6 +17,7 @@ export default function SubSidebar() {
   const pathname = usePathname();
   const pathSegments = pathname.split("/");
   const pathCreator = pathSegments[2];
+  const pathDate = pathSegments[3];
   const [grouped, setGrouped] = useState<Record<number, albumProp[]> | null>(
     null,
   );
@@ -52,26 +54,46 @@ export default function SubSidebar() {
   // console.log(sortedYears);
 
   return (
-    <div className="flex min-w-40 flex-col gap-3 bg-blue-300 px-4 py-20 text-end text-lg">
+    <div
+      className={clsx(
+        "sticky top-20 hidden h-full min-w-40 flex-col gap-3 px-4 py-20 text-end text-lg",
+        "md:flex",
+      )}
+    >
       {sortedYears &&
         sortedYears.map((year) => (
           <div key={year}>
             <div className="my-1 flex items-center">
-              <div className="h-[1px] w-full bg-black"></div>
+              {/* <div className="h-[1px] w-full bg-black" /> */}
               <div className="mx-2">{year}</div>
-              <div className="h-[1px] w-full bg-black"></div>
+              <div className="h-[1px] w-full bg-black" />
             </div>
             {grouped &&
-              grouped[year].map((item, index) => (
-                <Link
-                  href={`/creator/zzhe/${year}${item.date.replace(".", "")}`}
-                  key={index}
-                  className="my-1 flex items-center justify-end"
-                >
-                  {item.date.replace(".", "-")}
-                  <Dot className="inline-block" />
-                </Link>
-              ))}
+              grouped[year].map((item, index) => {
+                const isClick =
+                  `${year}${item.date.replace(".", "")}` === pathDate;
+                return (
+                  <Link
+                    href={`/creator/zzhe/${year}${item.date.replace(".", "")}`}
+                    key={index}
+                    className={clsx(
+                      "my-1 mr-3 flex items-center justify-end",
+                      "hover:text-lighter active:text-deeper",
+                      {
+                        "text-main": isClick,
+                      },
+                    )}
+                  >
+                    <Dot
+                      className={clsx({
+                        "inline-block": isClick,
+                        hidden: !isClick,
+                      })}
+                    />
+                    {item.date.replace(".", "-")}
+                  </Link>
+                );
+              })}
           </div>
         ))}
     </div>

@@ -18,11 +18,12 @@ export default function ArtistCard({ ...arg }: CardProp) {
             src={arg.src}
             fill
             alt={arg.name}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="bg-gray-600 object-cover"
           />
         </div>
         <div className="my-auto">
-          <span className="border-b border-amber-500 text-2xl">
+          <span className="border-b border-main text-2xl">
             {arg.label}
           </span>
           <div className="px-10 py-16">

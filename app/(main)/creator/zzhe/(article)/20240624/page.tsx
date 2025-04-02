@@ -1,19 +1,19 @@
+import ArticleBox from "@/app/components/articleBox";
 import ImageBox from "@/app/components/imageBox";
 
 export default function tainan() {
   return (
     <>
       <section className="flex grow flex-col p-20">
-        <div className="mb-5 border-b border-gray-700">
-          <div className="text-sm leading-3 text-gray-600">2024/06/24</div>
+        <div className="border-gray-70 mb-5 flex w-full flex-col items-center justify-center border-b">
           <h1>《台南圖書總館》</h1>
+          <span className="text-gray-600 mb-1">2024/06/24</span>
         </div>
+        <ArticleBox className="mt-10" article="佇立於台南台南市永康區的圖書館新總館，"/>
         <ImageBox src="photo1" title="我是標題" />
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vero
-          quis repellat facilis animi, fuga itaque fugit tempora sequi officia,
-          magni velit similique culpa quod optio neque libero molestias veniam!
-        </div>
+        <ArticleBox article="test"/>
+        <ArticleBox article="test"/>
+        <ArticleBox article="test"/>
         <ImageBox src="photo2" title="我是標題" />
         <ImageBox src="photo3" title="我是標題" />
         <ImageBox src="photo5" title="我是標題" />

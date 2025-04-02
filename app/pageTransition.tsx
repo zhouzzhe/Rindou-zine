@@ -22,6 +22,7 @@ export default function PageTransition({
         variants={variants}
         initial="hidden"
         animate="enter"
+        // exit="exit"
         transition={{ duration: 0.4, ease: "linear" }}
         key={pathname}
       >

@@ -10,7 +10,7 @@ export default function CreatorLayout({
   return (
     <>
       <FirstImage/>
-      <section className="mx-auto flex max-w-[1440px] justify-center">
+      <section className="relative mx-auto flex max-w-[1440px] justify-center">
         <SubSidebar />
         {children}
         <Sidebar />

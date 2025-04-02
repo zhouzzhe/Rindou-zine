@@ -67,7 +67,7 @@ export default function allAlbum() {
               <AlbumListThunbnail
                 key={index}
                 href={`/creator/${item.creator}/${item.year}${item.date.replace(".", "")}`}
-                src={item.src}
+                src={item.CoverSrc}
                 date={item.date}
                 label={item.label}
                 year={item.year}

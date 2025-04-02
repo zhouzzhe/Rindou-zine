@@ -19,7 +19,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico/book.png"></link>
       </head>
       <body className="antialiased">
-        <Header />
+          <Header />
         <PageTransition>{children}</PageTransition>
       </body>
     </html>

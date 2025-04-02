@@ -2,8 +2,15 @@
 
 /* 自定義項目 */
 @theme {
-  /* --color-myOrange: #ff6144; */
-  /* --font-mono: */
+  --color-lightOrange: #ff9800;
+  --color-deepOrange: #f4511e;
+
+  --color-lightest: #fefcfc; /*white*/
+  --color-lighter: #a6abcc; /*coolGray*/
+  --color-main: #4e5a9c; /*rindou*/
+  --color-deeper: #4d4e78; /*spaceCadet*/
+  --color-deepest: #1c110a; /*licorice*/
+
   --font-sans: DIN alternate;
 }
 
@@ -20,9 +27,18 @@
 body {
   cursor: default;
   overscroll-behavior: none;
+  /* 觸控板上一頁 */
+  /* overscroll-behavior-x: auto; */
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
+}
+
+.text-shadow {
+  /* text-shadow: 水平偏移 | 垂直偏移 | 模糊程度 | 顏色 */
+  text-shadow: 1px 1px black;
+  text-shadow: 2px 2px black;
+  text-shadow: 3px 3px black;
 }

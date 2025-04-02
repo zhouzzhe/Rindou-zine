@@ -1,11 +1,14 @@
-import FirstImage from "./components/firstImage";
+import Link from "next/link";
+import HomeSwiper from "./components/homeSwiper";
 import Sidebar from "./components/sidebar";
 import SubSidebar from "./components/subsidebar";
+import { ChevronsRight } from "lucide-react";
 
 export default function Home() {
   return (
     <>
       <div className="h-screen bg-red-200">
+        <HomeSwiper />
         {/* <Image
           src={imageSrc}
           alt={arg.label || "大圖"}
@@ -13,14 +16,37 @@ export default function Home() {
           className="object-cover pointer-events-none select-none"
         /> */}
       </div>
-      {/* 介紹 */}
-      <section className="mx-auto flex max-w-[1440px] justify-center">
+
+      <section className="relative mx-auto flex max-w-[1440px] justify-center">
         <SubSidebar />
-        <div className="vertical-rl mx-auto flex grow justify-center bg-gray-400 p-10 ">
-          <div>
-            歡迎來到「周哲緯 -
-            個人作品集」！這是一個專為展示我的攝影與設計作品而打造的網站，特別聚焦於富士日系風格，呈現柔和的色彩與復古情懷。網站收錄了我的旅行相簿、簡歷以及聯繫資訊，通過直觀的界面和動態效果，讓您輕鬆探索我的創作旅程。無論您是潛在雇主還是攝影愛好者，這裡都能讓您感受到我的熱情與專業。感謝您的蒞臨，期待您的回饋！
+        <div className="mx-auto flex grow flex-col justify-center gap-5 p-10">
+          {/* 文字介紹 */}
+          <div className="vertical-rl my-auto max-h-96 px-10 leading-10 tracking-wider">
+            步履蹣跚匆促，目光掠過塵世，罕有駐足。
+            <br />
+            從昔日珍稀的底片相機，到今日無處不在的數位紀錄，光影得以定格，時間能被無限複製，卻也悄然失重。
+            <br />
+            資訊如潮，淹沒凝視的空隙，靈魂在喧鬧中漸遠，忘卻緩慢的價值。
           </div>
+          <div className="mx-auto h-32 w-[1px] bg-black" />
+          <div className="vertical-rl my-auto max-h-96 px-10 leading-10 tracking-wider ">
+            「竜胆」——
+            其名源於根部苦味似龍之膽，是為苦味藥草，因其適應高山氣候以及晚秋綻放，被賦予孤高與內斂的意象，同時也象徵堅韌與時光流逝的哀愁。倘若能承龍膽之苦，方得其髓。
+            <br />
+            <br />
+            <div className="text-center">『愛上憂傷時的你』</div>
+          </div>
+          <div className="mx-auto h-32 w-[1px] bg-black" />
+          <Link
+            href="/all-album"
+            className="group hover:text-main active:text-deeper mx-auto mb-48 flex h-24 animate-pulse items-center"
+          >
+            <div className="px-3">ALL-ALBUM</div>
+            <ChevronsRight
+              size={20}
+              className="transition-transform group-hover:translate-x-1 group-hover:delay-100"
+            />
+          </Link>
         </div>
         <Sidebar />
       </section>
