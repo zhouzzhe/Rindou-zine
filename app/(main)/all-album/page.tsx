@@ -11,7 +11,7 @@ const formatDate = (date: string): string => {
   return date.replace(".", "");
 };
 
-export default function allAlbum() {
+export default function AllAlbum() {
   const [selectedCreator, setSelectedCreator] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
 

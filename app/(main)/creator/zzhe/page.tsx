@@ -16,7 +16,7 @@ const groupAlbums = zzheAlbumList.reduce(
   {} as Record<number, typeof zzheAlbumList>,
 );
 
-export default function zzhe() {
+export default function Zzhe() {
   const sortedYears = Object.keys(groupAlbums)
     .map(Number)
     .sort((a, b) => b - a);
