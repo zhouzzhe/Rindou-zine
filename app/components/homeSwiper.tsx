@@ -58,6 +58,7 @@ export default function HomeSwiper() {
                 alt="大圖"
                 fill
                 className="pointer-events-none object-cover select-none"
+                priority
               />
               <Link
                 href={`/creator/${item.creator}/${item.year}${item.date.replace(".", "")}`}

@@ -4,7 +4,7 @@ import ArtistCard from "@/app/components/artistCard";
 import AlbumList from "@/app/lib/albumList.json";
 import clsx from "clsx";
 
-const zzheAlbumList = AlbumList.filter((item) => item.creator === "zzhe");
+const zzheAlbumList = AlbumList.filter((item) => item.creator === "shuo");
 const groupAlbums = zzheAlbumList.reduce(
   (acc, item) => {
     if (!acc[item.year]) {
@@ -26,11 +26,11 @@ export default function Zzhe() {
       <div className="p-16">
         {/* 人物介紹 */}
         <ArtistCard
-          src="/image/zzhe/zzhe.jpg"
+          src="/image/shuo/shuo.jpg"
           label="PHOTOGRAPHER"
-          name="周哲緯"
-          subName="Zhou Zhe Wei"
-          intro="1999年生，高雄人，現居於台中市，喜歡看電影，假日常常一個人看電影看到凌晨，閒暇時間偶爾會出門散步，拍拍照或者就是騎車亂晃。"
+          name="莊承碩"
+          subName="Shuo Peter"
+          intro="我是攝影師兼滑雪教練，熱愛自由與探索。用鏡頭捕捉生活的美好，用滑雪征服雪地的激情，享受每一次與世界的碰撞。"
         />
       </div>
 

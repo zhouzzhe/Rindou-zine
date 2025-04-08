@@ -76,7 +76,8 @@ export default function Header() {
       {/* LOGO */}
       <Link href="/" className="hover:text-lighter active:text-main flex cursor-pointer items-center transition-transform duration-300 hover:scale-105">
         <BookImage />
-        <div>リンドウジン（Rindou Zine）</div>
+        <div>リンドウジン</div>
+        {/* （Rindou Zine） */}
       </Link>
 
       {/* 分頁狀態 */}

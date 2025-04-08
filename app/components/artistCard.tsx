@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 interface CardProp {
   src: string;
@@ -10,16 +12,19 @@ interface CardProp {
 
 // 人物介紹元件
 export default function ArtistCard({ ...arg }: CardProp) {
+  const [imgSrc, setImgSrc] = useState(arg.src);
+
   return (
     <>
       <div className="flex flex-col gap-5 bg-gray-200 p-10 md:flex-row md:gap-10">
         <div className="relative mx-auto aspect-square h-auto w-64 max-w-96 md:mx-0 md:w-full">
           <Image
-            src={arg.src}
+            src={imgSrc}
             fill
             alt={arg.name}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="bg-gray-600 object-cover"
+            sizes="100vw"
+            className="bg-gray-400 object-cover"
+            onError={(e) => setImgSrc("/image/user.png")}
           />
         </div>
         <div className="my-auto">

@@ -9,13 +9,15 @@ export default function Creator() {
           src="/image/zzhe/zzhe.jpg"
           label="photographer"
           name="周哲緯"
+          creator="ZZHE"
           email="zzhe828@gmail.com"
         />
         <ArtistThunbnail
-          href="/creator/zzhe"
-          src="/image/zzhe/zzhe.jpg"
+          href="/creator/shuo"
+          src="/image/shuo/shuo.jpg"
           label="photographer"
-          name="周哲緯"
+          name="莊承碩"
+          creator="SHUO"
           email="zzhe828@gmail.com"
         />
       </div>

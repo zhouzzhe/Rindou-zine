@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="zh-TW">
       <head>
-        <link rel="icon" href="/favicon.ico/book.png"></link>
+        <link rel="icon" href="/favicon.ico/rindou.png"></link>
       </head>
       <body className="antialiased">
           <Header />

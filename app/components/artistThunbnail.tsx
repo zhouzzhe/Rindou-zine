@@ -9,12 +9,14 @@ interface CardProp {
   src: string;
   label: string;
   name: string;
+  creator: string;
   email: string;
 }
 
 // 人物介紹元件
 export default function ArtistThunbnail({ ...arg }: CardProp) {
   const [isHover, setIsHover] = useState(false);
+  const [imgSrc, setImgSrc] = useState(arg.src);
 
   const maskAnimate = {
     initial: { scale: 0 },
@@ -31,7 +33,7 @@ export default function ArtistThunbnail({ ...arg }: CardProp) {
     hover: {
       x: 145,
       scale: 2,
-      rotate:-90 ,
+      rotate: -90,
       transition: {
         delay: 0.4,
       },
@@ -60,18 +62,19 @@ export default function ArtistThunbnail({ ...arg }: CardProp) {
           animate={!isHover ? "initial" : "hover"}
           transition={{ duration: 0.3, delay: 0.4 }}
         >
-          <div className="text-5xl text-black vertical-rl">ZZHE</div>
+          <div className="vertical-rl text-5xl text-black">{arg.creator}</div>
         </motion.div>
       </div>
 
       {/* 作者照片 */}
       <div className="relative aspect-square h-auto w-full max-w-56">
         <Image
-          src={arg.src}
+          src={imgSrc}
           fill
           alt={arg.name}
-          sizes=""
-          className="bg-gray-600 object-cover"
+          sizes="100vw"
+          className="bg-gray-400 object-cover"
+          onError={() => setImgSrc("/image/user.png")}
         />
       </div>
       {/* 作者介紹 */}
