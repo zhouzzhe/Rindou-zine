@@ -12,8 +12,8 @@ interface CardProp {
 export default function ArtistCard({ ...arg }: CardProp) {
   return (
     <>
-      <div className="flex gap-10 bg-gray-200 p-10">
-        <div className="relative aspect-square h-auto w-full max-w-96">
+      <div className="flex flex-col gap-5 bg-gray-200 p-10 md:flex-row md:gap-10">
+        <div className="relative mx-auto aspect-square h-auto w-64 max-w-96 md:mx-0 md:w-full">
           <Image
             src={arg.src}
             fill
@@ -23,11 +23,14 @@ export default function ArtistCard({ ...arg }: CardProp) {
           />
         </div>
         <div className="my-auto">
-          <span className="border-b border-main text-2xl">
+          <span className="border-main hidden border-b text-2xl md:inline">
             {arg.label}
           </span>
-          <div className="px-10 py-16">
-            <div className="mb-5">
+          <div className="px-10 py-0 md:py-16">
+            <div className="mb-5 text-center md:text-left">
+              <span className="border-main mb-2 inline-block border-b text-lg md:hidden">
+                {arg.label}
+              </span>
               <div className="text-4xl font-medium tracking-wider">
                 {arg.name}
               </div>

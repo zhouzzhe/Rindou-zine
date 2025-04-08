@@ -16,7 +16,7 @@ export default function FirstImage({ ...arg }: FirstImageProp) {
   return (
     <>
       {/* 大圖 */}
-      <div className="relative h-screen bg-red-200">
+      <div className="relative h-screen bg-lighter">
         <Image
           src={imageSrc}
           alt={arg.label || "大圖"}

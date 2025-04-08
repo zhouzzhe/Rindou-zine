@@ -88,7 +88,7 @@ export default function Header() {
         className={clsx(
           "group z-50 flex cursor-pointer items-center",
           "rounded-2xl border border-black px-4 text-black",
-          "duration-700 transition-all",
+          "duration-150 transition-all",
           "hover:bg-lighter active:bg-main active:text-lightest hover:text-black hover:border-main",
         )}
       >

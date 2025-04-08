@@ -32,9 +32,9 @@ export default function Home() {
           <div className="vertical-rl my-auto max-h-96 px-10 leading-10 tracking-wider ">
             「竜胆」——
             其名源於根部苦味似龍之膽，是為苦味藥草，因其適應高山氣候以及晚秋綻放，被賦予孤高與內斂的意象，同時也象徵堅韌與時光流逝的哀愁。倘若能承龍膽之苦，方得其髓。
-            <br />
-            <br />
-            <div className="text-center">『愛上憂傷時的你』</div>
+            {/* <br />
+            <br /> */}
+            {/* <div className="text-center">『愛上憂傷時的你』</div> */}
           </div>
           <div className="mx-auto h-32 w-[1px] bg-black" />
           <Link
