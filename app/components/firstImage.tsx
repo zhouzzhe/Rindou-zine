@@ -12,6 +12,7 @@ export default function FirstImage({ ...arg }: FirstImageProp) {
   const pathCreator = pathSegments[2];
   const pathDate = pathSegments[3];
   const imageSrc = `/image/${pathCreator}/${pathDate}/firstImage.jpg`;
+  
 
   return (
     <>

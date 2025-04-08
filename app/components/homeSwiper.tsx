@@ -60,7 +60,7 @@ export default function HomeSwiper() {
                 className="pointer-events-none object-cover select-none"
               />
               <Link
-                href={`creator/${item.creator}/${item.year}${item.date.replace(".", "")}`}
+                href={`/creator/${item.creator}/${item.year}${item.date.replace(".", "")}`}
               >
                 <div className="absolute bottom-10 flex w-full flex-col items-center justify-center">
                   {/* 字體仍需更換 */}
